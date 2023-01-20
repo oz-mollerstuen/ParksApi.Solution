@@ -2,7 +2,7 @@
 
 #### By: _**Lucas Mollerstuen**_
 
-<img src="/Users/admin/Desktop/ParkApi.Solution/ParksApi/img/DALL·E 2023-01-20 13.49.40 - a 3d render of an astronaut programming in space, vaporwave.png" width="50%" height="50%">
+![Image](img/img.png)
 
 #### _Files, Code, and setup with comments for using Identity and Roles to add to projects._
 
