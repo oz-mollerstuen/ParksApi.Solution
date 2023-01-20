@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using TravelApi.Models;
+using ParksApi.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
@@ -9,7 +9,7 @@ using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using System.Text.Json;
 
-namespace TravelApi.Controllers
+namespace ParksApi.Controllers
 {
     [Authorize]
     [Route("api/[controller]")]
@@ -18,9 +18,9 @@ namespace TravelApi.Controllers
     {
 
         private readonly IConfiguration _config;
-        private readonly TravelApiContext _db;
+        private readonly ParksApiContext _db;
 
-        public SecurityController(TravelApiContext db, IConfiguration configuration)
+        public SecurityController(ParksApiContext db, IConfiguration configuration)
         {
             _db = db;
             _config = configuration;
