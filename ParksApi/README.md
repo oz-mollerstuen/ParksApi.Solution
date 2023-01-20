@@ -19,11 +19,11 @@
 
 
 ### Description
-An API that functions as a recipe archive for coffee drinks from around the world. It utilizes RESTful principles, version control, pagination, and has integrated authentication to keep the API Read-Only for all users except administrators. The user is able to see the in-use version of the API when using Postman.
+An API that functions as a State and National archive for parks and recreational areas. It utilizes RESTful principles, version control, pagination, and has simi integrated authentication to keep the API Read-Only for all users except administrators. The user is able to see the in-use version of the API when using Postman or Swagger.
 
 ## Setup/Installation Requirements
 
-* _Clone the repository to your desktop from: https://github.com/DavidDGamble/TravelApi.Solution.git_
+* _Clone the repository to your desktop from: https://github.com/oz-mollerstuen/ParksApi.Solution.git_
 * _Create appsettings.json file in ASPNETIdentityRoles folder_
 
 ```
@@ -41,7 +41,7 @@ An API that functions as a recipe archive for coffee drinks from around the worl
   }
 
 ```
-* _run dotnet commands below in _TravelApi_
+* _run dotnet commands below in _ParksApi_
 ```
 dotnet restore
 ```
@@ -52,19 +52,19 @@ dotnet ef database update
 dotnet watch run
 ```
  #### Launch the API
-  1) Navigate to TravelApi.Solution/TravelApi directory using the MacOS Terminal or Windows Powershell (e.g. `cd Desktop/TravelApi.Solution/TravelApi`).
+  1) Navigate to ParksApi.Solution/TravelApi directory using the MacOS Terminal or Windows Powershell (e.g. `cd Desktop/ParksApi.Solution/ParksApi`).
   2) Run the command `dotnet run` to have access to the API in Postman or browser.
 
 ------------------------------
 
 ## API Documentation
-Explore the API endpoints in Postman or a browser. You will not be able to utilize authentication in a browser.
+Explore the API endpoints in Postman or a browser using Swagger. You will not be able to utilize authentication in a browser.
 
 ### Using Swagger Documentation 
-To explore the Travel-Api with NSwag, launch the project using `dotnet run` with the Terminal or Powershell, and input the following URL into your browser: `http://localhost:5000/swagger`
+To explore the Parks-Api with swagger, launch the project using `dotnet watch run` with the Terminal or Powershell.
 
 ### Endpoints
-Base URL: `https://localhost:5000`
+Base URL: `https://localhost:5001`
 
 #### HTTP Request Structure
 ```
@@ -78,31 +78,32 @@ POST /api/{component}/{id}
 #### Example Query
 
 ```
-https://localhost:5001/api/Destinations/1
+https://localhost:7213/api/Parkrec/2
 
 ```
 
 #### Sample JSON Response
-``` {
-  "destinationId": 1,
-  "name": "portland",
-  "reviews": null
-} 
+``` 
+{
+  "parkrecId": 2,
+  "name": "Champoeg",
+  "tipes": null
+}
 ```
 
 #### Example Query
 
 ```
-https://localhost:5001/api/Reviews/5
+https://localhost:7213/api/Tipe/3
 
 ```
 #### Sample JSON Response
 ``` 
 {
-  "reviewId": 5,
-  "summary": "gresham sucks",
-  "rating": 2,
-  "destinationId": 2
+  "tipeId": 3,
+  "summary": "State Park",
+  "rating": 8,
+  "parkrecId": 2
 }
 ```
 
