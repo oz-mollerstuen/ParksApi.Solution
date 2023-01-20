@@ -2,7 +2,7 @@
 
 #### By: _**Lucas Mollerstuen**_
 
-![Image](/Users/admin/Desktop/ParkApi.Solution/ParksApi/img/img.png)
+![My Remote Image](https://user-images.githubusercontent.com/115112679/213813408-5c9d1630-4a2e-40c5-befc-408b3a8810cc.png)
 
 #### _Files, Code, and setup with comments for using Identity and Roles to add to projects._
 
