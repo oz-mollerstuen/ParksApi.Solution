@@ -5,6 +5,6 @@ namespace ParksApi.Models
     public int ParkrecId { get; set; }
     public string Name { get; set; }
 
-    public List<Type> Types { get; set; }
+    public List<Tipe> Tipes { get; set; }
   }
 }
