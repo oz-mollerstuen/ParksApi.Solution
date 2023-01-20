@@ -1,61 +1,61 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using TravelApi.Models;
+using ParksApi.Models;
 
-namespace TravelApi.Controllers
+namespace ParksApi.Controllers
 {
   [Route("api/[controller]")]
   [ApiController]
-  public class DestinationsController : ControllerBase
+  public class ParkrecController : ControllerBase
   {
-    private readonly TravelApiContext _db;
+    private readonly ParksApiContext _db;
 
-    public DestinationsController(TravelApiContext db)
+    public ParkrecController(ParksApiContext db)
     {
       _db = db;
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<Destination>> GetDesination(int id)
+    public async Task<ActionResult<Parkrec>> GetParkrec(int id)
     {
-      Destination destination = await _db.Destinations.FindAsync(id);
+      Parkrec parkrec = await _db.Parkrecs.FindAsync(id);
 
-      if (destination == null)
+      if (parkrec == null)
       {
         return NotFound();
       }
-      return destination;
+      return parkrec;
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Destination>>> Get(string name)
+    public async Task<ActionResult<IEnumerable<Parkrec>>> Get(string name)
     {
-      IQueryable<Destination> query = _db.Destinations.AsQueryable();
+      IQueryable<Parkrec> query = _db.Parkrecs.AsQueryable();
 
       if (name != null)
       {
         query = query.Where(entry => entry.Name == name);
       }
 
-      return await query.Include(review => review.Reviews).ToListAsync();
+      return await query.Include(tipe => tipe.Tipes).ToListAsync();
     }
 
     [HttpPost]
-    public async Task<ActionResult<Destination>> Post(Destination destination)
+    public async Task<ActionResult<Parkrec>> Post(Parkrec parkrec)
     {
-      _db.Destinations.Add(destination);
+      _db.Parkrecs.Add(parkrec);
       await _db.SaveChangesAsync();
-      return CreatedAtAction(nameof(GetDesination), new { id = destination.DestinationId }, destination);
+      return CreatedAtAction(nameof(GetParkrec), new { id = parkrec.ParkrecId }, parkrec);
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> Put(int id, Destination destination)
+    public async Task<IActionResult> Put(int id, Parkrec parkrec)
     {
-      if (id != destination.DestinationId)
+      if (id != parkrec.ParkrecId)
       {
         return BadRequest();
       }
-      _db.Destinations.Update(destination);
+      _db.Parkrecs.Update(parkrec);
 
 
       try
@@ -64,7 +64,7 @@ namespace TravelApi.Controllers
       }
       catch (DbUpdateConcurrencyException)
       {
-        if (!DestinationExists(id))
+        if (!ParkrecExists(id))
         {
           return NotFound();
         }
@@ -76,21 +76,21 @@ namespace TravelApi.Controllers
       return NoContent();
     }
 
-    private bool DestinationExists(int id)
+    private bool ParkrecExists(int id)
     {
-      return _db.Destinations.Any(e => e.DestinationId == id);
+      return _db.Parkrecs.Any(e => e.ParkrecId == id);
     }
 
     [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteDestination(int id)
+    public async Task<IActionResult> DeleteParkrec(int id)
     {
-      Destination destination = await _db.Destinations.FindAsync(id);
-      if (destination == null)
+      Parkrec parkrec = await _db.Parkrecs.FindAsync(id);
+      if (parkrec == null)
       {
         return NotFound();
       }
 
-      _db.Destinations.Remove(destination);
+      _db.Parkrecs.Remove(parkrec);
       await _db.SaveChangesAsync();
 
       return NoContent();

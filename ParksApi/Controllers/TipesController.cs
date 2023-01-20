@@ -18,7 +18,7 @@ namespace ParksApi.Controllers
     [HttpGet("{id}")]
     public async Task<ActionResult<Tipe>> GetTipe(int id)
     {
-      Tipe tipe = await _db.Tipe.FindAsync(id);
+      Tipe tipe = await _db.Tipes.FindAsync(id);
 
       if (tipe == null)
       {
